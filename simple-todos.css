@@ -114,6 +114,10 @@ header .hide-completed {
 	color:red;
 }
 
+.author{
+	color: grey;
+}
+
 @media (max-width: 600px) {
   li {
     padding: 12px 15px;
