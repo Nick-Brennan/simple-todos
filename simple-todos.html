@@ -5,7 +5,11 @@
 <body>
   <div class="container">
   	<header>
-  		<h1>CollabTodo</h1>
+  		<h1>CollabTodo <small id="active">active: {{incompleteCount}}</small></h1>
+  		<label class="hide-completed">
+  			<input type="checkbox" checked="{{hideCompleted}}"/>
+  			Hide Completed
+  		</label>
   		<form class="new-task">
   			<input name="text" placeholder="Add a new task" />
   		</form>
