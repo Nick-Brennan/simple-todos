@@ -69,9 +69,17 @@ Meteor.methods({
     });
   },
   deleteTask: function(taskId){
+    var task = Task.findOne(taskId);
+    if(task.private && task.owner !== Meteor.userId()){
+      throw new Meteor.Error("user not authorized to delete this task");
+    }
     Tasks.remove(taskId);
   },
   setChecked: function(taskId, setChecked){
+    var task = Task.findOne(taskId);
+    if(task.private && task.owner !== Meteor.userId()){
+      throw new Meteor.Error("user not authorized to delete this task");
+    }
     Tasks.update(taskId, {$set: {checked: setChecked}});
   },
   setPrivate: function(taskId, setToPrivate){
